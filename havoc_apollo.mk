@@ -12,9 +12,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
 # Inherit some common Fluid stuff.
-$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
+$(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
-PRODUCT_NAME := fluid_apollo
+HAVOC_BUILD_TYPE := UNOFFICIAL
+
+TARGET_GAPPS_ARCH := arm64
+WITH_GAPPS := true
+
+PRODUCT_NAME := havoc_apollo
 PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
@@ -27,9 +32,3 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_INCLUDE_GAPPS := true
 TARGET_INCLUDE_STOCK_ARCORE := true
 TARGET_INCLUDE_GOOGLE_RECORDER := true
-
-# Fluid
-FLUID_BUILD_TYPE := OFFICIAL
-PRODUCT_PRODUCT_PROPERTIES += \
-  ro.fluid.maintainer=Ramisky \
-  ro.fluid.cpu=SDM865
